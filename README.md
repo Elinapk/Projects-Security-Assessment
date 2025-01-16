@@ -8,7 +8,7 @@ To get started with these projects, follow these steps:
 
 Clone the repository to your local machine:
 
-    git clone https://github.com/Elinapk/Security-Assessments-projects-for-Beginners.git
+    git clone https://github.com/Elinapk/Projects-Security-Assessment.git
     cd Security-Assessments-projects-for-Beginners
 
 
