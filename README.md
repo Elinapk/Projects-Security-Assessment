@@ -1,7 +1,13 @@
 Security Assessments projects.
-This repository offers hands-on projects tailored for beginners to learn and practice security assessments and foundational cybersecurity skills.Projects Overview
 
-Basic Network Security Assessment: Learn to identify vulnerabilities in network configurations.
+This repository offers hands-on projects tailored for beginners to learn and practice security assessments and foundational cybersecurity skills.
+
+Projects Overview
+
+* Basic Network Security Assessment: Learn to identify vulnerabilities in network configurations.
+* *
+* * *
+
 Getting Started
 
 To get started with these projects, follow these steps:
